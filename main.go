@@ -1,17 +1,44 @@
 package main
 
-import "log"
+import (
+	"log"
+	"time"
+)
+
+var s = "package"
 
 func main() {
-	myString := "Green"
-	log.Println("Color before the pointer function",myString)
-	ChangeColor(&myString)
-	log.Println("color after changecolor func", myString)
+	var s = "main"
+
+	type User struct {
+		FirstName   string
+		LastName    string
+		PhoneNumber string
+		Age         int
+		BirthDate   time.Time
+	}
+
+	user := User{
+		FirstName:   "Dayo",
+		LastName:    "Oluseye",
+		Age:         40,
+		PhoneNumber: "07085405644",
+	}
+
+	log.Println(user.FirstName, user.LastName, user.BirthDate)
+
+	log.Println("s is", s)
+	log.Println("s2 is", s)
+
+	i, j := saySomething("SAY")
+	log.Println(i, j)
+
+	log.Println(saySomething("SUP"))
 
 }
 
-func ChangeColor(s *string) {
-	newColor := "Red"
-	*s = newColor
-
+func saySomething(s3 string) (string, string) {
+	log.Println("s from the saySomething func is", s)
+	log.Println("s from the saySomething func is", s3)
+	return s3, "Hello"
 }
