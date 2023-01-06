@@ -10,6 +10,8 @@ func main() {
 
 }
 
+// testing second commit
+
 func SaySomething(val1 string, val2 string) (string, string) {
 	return val1, val2
 }
