@@ -6,12 +6,7 @@ func main() {
 
 	word2, word1 := SaySomething("Hello Dayo. ", "How old are you?")
 	log.Println(word1,"\n", word2)
-
-	// saySomethingEsle = SaySomething("Good Bye!", "You are mad")
-	// log.Println(saySomethingEsle)
-
-	// log.Println(SaySomething("Finally!!!"))
-	// log.Println(i)
+// Testing branches
 
 }
 
