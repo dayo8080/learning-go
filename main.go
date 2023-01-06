@@ -3,15 +3,14 @@ package main
 import "log"
 
 func main() {
+	var isTrue bool
 
-	word2, word1 := SaySomething("Hello Dayo. ", "How old are you?")
-	log.Println(word1,"\n", word2)
-// Testing branches
+	isTrue = true
 
-}
+	if isTrue {
+		log.Println("isTrue is", isTrue)
+	} else {
+		log.Println("isTrue is", isTrue)
+	}
 
-// testing second commit
-
-func SaySomething(val1 string, val2 string) (string, string) {
-	return val1, val2
 }
