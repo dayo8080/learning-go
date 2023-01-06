@@ -3,15 +3,15 @@ package main
 import "log"
 
 func main() {
-
-	word2, word1 := SaySomething("Hello Dayo. ", "How old are you?")
-	log.Println(word1,"\n", word2)
-// Testing branches
+	myString := "Green"
+	log.Println("Color before the pointer function",myString)
+	ChangeColor(&myString)
+	log.Println("color after changecolor func", myString)
 
 }
 
-// testing second commit
+func ChangeColor(s *string) {
+	newColor := "Red"
+	*s = newColor
 
-func SaySomething(val1 string, val2 string) (string, string) {
-	return val1, val2
 }
