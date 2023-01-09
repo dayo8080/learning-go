@@ -6,12 +6,21 @@ import (
 	"github.com/dayo8080/learning-golang/helpers"
 )
 
+const numPool = 9999
+
+func Calculatevalue(intChannel chan int) {
+	randomNumber := helpers.RandomNumber(numPool)
+
+	intChannel <- randomNumber
+}
+
 func main() {
-	var myVar helpers.SomeType
 
-	myVar.FirstName = "Dayo"
-	myVar.LastName = "Oluseye"
+	intChannel := make(chan int)
+	defer close(intChannel)
 
-	log.Println(myVar.FirstName, myVar.LastName)
+	go Calculatevalue(intChannel)
 
+	num := <- intChannel
+	log.Println(num)
 }
