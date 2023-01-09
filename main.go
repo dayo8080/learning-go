@@ -3,51 +3,62 @@ package main
 import "log"
 
 func main() {
-	var isTrue bool
 
-	isTrue = true
+	// create a map with a variable myMap. Maps are key value pairs
+	myMap := make(map[string]string)
 
-	if isTrue {
-		log.Println("isTrue is", isTrue)
-	} else {
-		log.Println("isTrue is", isTrue)
+	// append data to the myMap variable
+	myMap["key 0"] = "value 0"
+	myMap["key 1"] = "value 1"
+	myMap["key 2"] = "value 2"
+	myMap["key 3"] = "value 3"
+
+	// loop through a map
+	for mapKey, mapValue := range myMap{
+		log.Println(mapKey, mapValue)
 	}
 
-	cat := "cat"
-
-	if cat == "cat" {
-		log.Println("Cat is cat")
-	} else {
-		log.Println("Cat is not cat")
+	// create a User struct
+	type User struct {
+		FirstName string
+		LastName string
+		Age int
 	}
 
-	myNum := 100
-	isTrue_ := false
-
-	if myNum > 99 && isTrue_ == false {
-		log.Println("myNum is greater than 99 and isTrue_ is set to true")
-	} else if myNum <= 100 || !isTrue_ {
-		log.Println("myNum is greater than 99 and isTrue_ is set to true")
-	} else if myNum > 100 || isTrue_ {
-		log.Println("myNum is greater than 99 and isTrue_ is set to true")
-	} else {
-		log.Println("Not found!")
+	// create objects of type User
+	user1 := User {
+		FirstName: "Dayo",
+		LastName: "Oluseye",
 	}
 
-	myName := "Dayo"
-
-	switch myName {
-	case "Dayo":
-		log.Println("Dayo is not ", myName)
-	case "tayo":
-		log.Println("Dayo is not ", myName)
-	case "tobi":
-		log.Println("Dayo is not ", myName)
-	case "samuel":
-		log.Println("Dayo is not ", myName)
-	default:
-		log.Println("Nothing to show")
-
+		user2 := User {
+		FirstName: "Folake",
+		LastName: "Oluseye",
 	}
 
+	// create a variable mySliceNew with a type User Slice
+	var mySliceNew []User
+	
+	// append values to a slice
+	mySliceNew = append(mySliceNew, user1, user2)
+
+	// loop through the slice
+	for y, x:=range mySliceNew{
+		log.Println(y, x.FirstName, x.LastName)
+	}
+
+
+	
+
+	// a slice also called an array
+	mySlice := []string{"dog", "cat", "horse", "fish", "banana"}
+
+	// _ is the index which is ignored,
+	for _, x := range mySlice {
+		log.Println(x)
+	}
+
+	for i := 0; i <= 10; i++ {
+		log.Println(i)
+	}
 }
