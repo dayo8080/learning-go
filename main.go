@@ -2,63 +2,64 @@ package main
 
 import "log"
 
+// defining an interface with a name of Animal, all function inside the interface must be implemented
+type Animal interface {
+	Says() string
+	NumberOfLegs() int
+}
+
+// create a Dog struct
+type Dog struct {
+	Name  string
+	Breed string
+}
+
+// create a gorilla struct
+type Gorilla struct {
+	Name          string
+	Color         string
+	NumberOfTeeth int
+}
+
 func main() {
-
-	// create a map with a variable myMap. Maps are key value pairs
-	myMap := make(map[string]string)
-
-	// append data to the myMap variable
-	myMap["key 0"] = "value 0"
-	myMap["key 1"] = "value 1"
-	myMap["key 2"] = "value 2"
-	myMap["key 3"] = "value 3"
-
-	// loop through a map
-	for mapKey, mapValue := range myMap{
-		log.Println(mapKey, mapValue)
+	// create an object of Dog struct
+	dog := Dog{
+		Name:  "Samson",
+		Breed: "German Shepherd",
 	}
-
-	// create a User struct
-	type User struct {
-		FirstName string
-		LastName string
-		Age int
+	// create an object of Gorilla struct
+	gorilla := Gorilla{
+		Name:          "Gree",
+		Color:         "Black",
+		NumberOfTeeth: 34,
 	}
+	// call the printinfo func with object dog as the parameter
+	PrintInfo(dog)
+	// call the printinfo func with object gorilla as the parameter
+	PrintInfo(gorilla)
+}
 
-	// create objects of type User
-	user1 := User {
-		FirstName: "Dayo",
-		LastName: "Oluseye",
-	}
+// create a function Says with a receivable g of Gorilla struct, which returns a string
+func (g Gorilla) Says() string {
+	return "Killll"
+}
 
-		user2 := User {
-		FirstName: "Folake",
-		LastName: "Oluseye",
-	}
+// create a function NumberOfLegs with a receivable g of Gorilla struct, which returns a int
+func (g Gorilla) NumberOfLegs() int {
+	return 6
+}
 
-	// create a variable mySliceNew with a type User Slice
-	var mySliceNew []User
-	
-	// append values to a slice
-	mySliceNew = append(mySliceNew, user1, user2)
+// create a function Says with a receivable d of Dog struct, which returns a string
+func (d Dog) Says() string {
+	return "woof"
+}
 
-	// loop through the slice
-	for y, x:=range mySliceNew{
-		log.Println(y, x.FirstName, x.LastName)
-	}
+// create a function NumberOfLegs with a receivable d of Dog struct, which returns a int
+func (d Dog) NumberOfLegs() int {
+	return 4
+}
 
-
-	
-
-	// a slice also called an array
-	mySlice := []string{"dog", "cat", "horse", "fish", "banana"}
-
-	// _ is the index which is ignored,
-	for _, x := range mySlice {
-		log.Println(x)
-	}
-
-	for i := 0; i <= 10; i++ {
-		log.Println(i)
-	}
+// create a function PrintInfo with an argument a as the interface
+func PrintInfo(a Animal) {
+	log.Println("This animal says", a.Says(), "and have a number of ", a.NumberOfLegs(), "legs")
 }
